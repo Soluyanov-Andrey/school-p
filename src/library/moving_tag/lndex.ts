@@ -1,12 +1,23 @@
+let buttonDown:string ="buttonDown";
+let guideMarkB:string ="guideMarkB";
 
-function sum_f(nameTag:string):void {
+let buttonUp:string ="buttonUp";
+let guideMarkA:string ="guideMarkA";
+
+function moveToTag(button:string, tag:string):void{
  
-  let el: HTMLElement | null = document.getElementById(nameTag);
+  let getButton: HTMLElement | null = document.getElementById(button);
 
-  el!.addEventListener('click', function() {
-    let el1: HTMLElement | null = document.getElementById("hh");
-    el1!.scrollIntoView({behavior: "smooth"});
-});
 
+  function toggleMenu (tag:string ) {
+    
+    let element: HTMLElement | null = document.getElementById(tag);
+    element!.scrollIntoView({behavior: "smooth"});
+
+  }
+
+  getButton!.addEventListener('click',toggleMenu.bind(getButton, tag));
 }
 
+moveToTag(buttonDown,guideMarkB);
+moveToTag(buttonUp,guideMarkA);
